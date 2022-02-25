@@ -1,10 +1,14 @@
 import React from "react";
+import CarouselComponent from "./CarouselComponent";
+import CarouselSelector from "./CarouselSelector";
+import '../../styles/home.css'
 
 const Home = () => {
     return(
         <div className="home">
-            <div className="carouser">
-                carousel
+            <div className="top">
+                < CarouselSelector />
+                < CarouselComponent />
             </div>
             <section>
                 <h2> Most viewed </h2>
