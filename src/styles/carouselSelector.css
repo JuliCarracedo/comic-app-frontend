@@ -1,0 +1,27 @@
+.carousel-selector {
+    width: 30vw;
+}
+
+.carousel-selector > ul {
+    list-style: none;
+    border: 1px solid gray;
+    border-radius: 10px; 
+    padding: 0;
+}
+
+.carousel-selector > ul > li {
+    list-style: none;
+    padding: 10px;
+    text-align: center;
+}
+
+.not-first {
+    border-top: 1px solid gray;
+}
+
+.carousel-selector > ul > li:hover {
+    list-style: none;
+    padding: 10px;
+    text-align: center;
+    background-color: gray;
+}

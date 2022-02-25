@@ -1,0 +1,26 @@
+.carousel-container {
+    width: 60vw;
+    height: 40vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.carousel-container > button {
+    height: 10vh;
+}
+
+.carousel-inner {
+    display: flex;
+    justify-content: center;
+    width: 50vw;
+    height: 40vh;
+}
+.item {
+    width: 40vw;
+    height: 40vh;
+    background-image: url('../../public/default-placeholder.png');
+    background-size: cover;
+    text-align: center;
+}
+
