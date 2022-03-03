@@ -16,11 +16,13 @@
     width: 50vw;
     height: 40vh;
 }
+
 .item {
     width: 40vw;
     height: 40vh;
-    background-image: url('../../public/default-placeholder.png');
+    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSjI3lRjeOzOEettfuTSjy37Zb55iUpoHuQg&usqp=CAU');
     background-size: cover;
     text-align: center;
+    text-decoration: none;
 }
 
