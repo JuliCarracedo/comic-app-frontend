@@ -10,12 +10,6 @@ const Home = () => {
                 < CarouselSelector />
                 < CarouselComponent />
             </div>
-            <section>
-                <h2> Most viewed </h2>
-            </section>
-            <section>
-                <h2> Discover </h2>
-            </section>
         </div>
     )
 }
