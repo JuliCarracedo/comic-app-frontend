@@ -5,3 +5,12 @@ html {
 body {
   margin: 0;
 }
+
+.container{
+    padding: 2%;
+}
+
+.creators {
+  display: flex;
+  flex-wrap: wrap;
+}
