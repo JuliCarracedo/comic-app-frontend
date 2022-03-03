@@ -1,0 +1,22 @@
+.card {
+    width: 30%;
+    height: 20%;
+    display: flex;
+    align-items: center;
+    margin: 2rem;
+    padding: 0.5rem;
+    background-color: gray;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.card:hover {
+    background-color: gainsboro;
+}
+
+.card > img {
+    width: 5rem;
+    height: 5rem;
+    margin: 1rem;
+    border-radius: 50%;
+}
