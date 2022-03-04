@@ -1,4 +1,5 @@
 import React from "react";
+import '../../styles/comics-card.css'
 
 const ComicsCard = (props) => {
     const { comic } = props
