@@ -1,5 +1,5 @@
 import React from "react";
-
+import '../../styles/big-selector.css'
 const BigCategorySelector = (props) => {
     const {categories, setCategory} = props
     const handleCategory = (e, cat) => {
