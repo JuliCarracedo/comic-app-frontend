@@ -16,6 +16,9 @@
     align-items: center;
 }
 
+.big-categories > li:nth-child(n+1) {
+    border-top: 1px solid gray;
+}
 
 .big-categories > li:hover {
     background-color: gray;
