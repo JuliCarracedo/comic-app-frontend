@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import ComicsCard from "../Comic-Card/ComicsCard";
 import BigCategorySelector from "./BigCategorySelector";
 import CategoriesSelector from "./CategoriesSelector";
 
@@ -22,22 +23,24 @@ const Categories = () => {
     const filteredComics = (category == 'All' ? comics : comics.filter(comic=> comic.category == category))
     return(
         <div className="container">
-            <h2>Categories {category ? `: ${category}` : ''}</h2>
             {category ? 
             <>
                 < CategoriesSelector
                 categories={categories}
                 setCategory={setCategory}
                 />
+                <h2>Categories {category ? `: ${category}` : ''}</h2>
                 <div className="comics-by-category">
-                    {filteredComics.map(comic=><div>{comic.title}</div>)}
+                    {filteredComics.map(comic=><ComicsCard comic={comic}/>)}
                 </div>
             </>
             :
-           < BigCategorySelector
-            categories={categories}
-            setCategory={setCategory}
-          /> }
+            <>
+                <h2>Select a Category</h2>
+                < BigCategorySelector
+                categories={categories}
+                setCategory={setCategory}/> 
+            </>}
         </div>
     )
 }
