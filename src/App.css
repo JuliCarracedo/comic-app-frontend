@@ -10,7 +10,9 @@ body {
     padding: 2%;
 }
 
-.creators {
+.creators, .comics-by-category {
   display: flex;
   flex-wrap: wrap;
+  padding-left: auto;
+  padding-right: auto;
 }
