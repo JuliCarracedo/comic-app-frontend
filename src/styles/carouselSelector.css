@@ -12,6 +12,10 @@
 .carousel-selector > ul > li {
     list-style: none;
     text-align: center;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .not-first {
@@ -20,7 +24,6 @@
 
 .carousel-selector > ul > li:hover, .active-select{
     list-style: none;
-    padding: 10px;
     text-align: center;
     background-color: gray;
 }
