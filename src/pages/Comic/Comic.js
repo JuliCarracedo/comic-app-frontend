@@ -1,5 +1,7 @@
 import React from "react";
 import '../../styles/comic.css'
+import ChapterCard from "../Comic-Card/ChapterCard";
+
 const Comic = () => {
     const chapters = [{number: 1, title: 'Furst Chaprer', description: 'Loremm ipsum dolor sit amet'},
                     {number: 4, title: 'Furt Chaprer', description: 'Loremm ipsum dolor sit amet'}, 
@@ -21,9 +23,7 @@ const Comic = () => {
                 {
                    chapters.sort((a,b)=>a.number < b.number ? -1 : 1).map(
                        chapter => < li key={chapter.number}>
-                           <h3>{chapter.title}</h3> 
-                           <p>{chapter.description}</p>
-                           <p> x Likes</p>
+                            < ChapterCard chapter={chapter} />
                            </li>
                    ) 
                 }

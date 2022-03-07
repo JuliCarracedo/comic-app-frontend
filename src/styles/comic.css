@@ -16,6 +16,14 @@
     align-items:flex-start;
 }
 
+.chapters-list >li{
+    height: max-content;
+}
+
+.chapters-list >li:nth-child(n+1){
+    border-top: 1px solid gray;
+}
+
 .similar-comics {
     list-style: none;
     padding: 0;
