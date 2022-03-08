@@ -1,6 +1,7 @@
 import React from "react";
 import '../../styles/comic.css'
 import ChapterCard from "../Comic-Card/ChapterCard";
+import SuggestionCard from "../Comic-Card/SuggestionCard";
 
 const Comic = () => {
     const chapters = [{number: 1, title: 'Furst Chaprer', description: 'Loremm ipsum dolor sit amet'},
@@ -8,6 +9,9 @@ const Comic = () => {
                     {number: 3, title: 'Tirud Chaprer', description: 'Loremm ipsum dolor sit amet'},
                     {number: 2, title: 'Bind Chaprer', description: 'Loremm ipsum dolor sit amet'},
                     {number: 5, title: 'Quint Chaprer', description: 'Loremm ipsum dolor sit amet'} ]
+    const suggestions = [{category: 'Action', title: 'Dragon Ball'},
+                    {category: 'Action', title: 'Naruto'},
+                    {category: 'Action', title: 'The Avengers'}]
 
      return (
         <div className="container">
@@ -32,13 +36,7 @@ const Comic = () => {
             <ul className="similar-comics">
                 <li><h3>Similar comics</h3></li>
                 {
-                   chapters.sort((a,b)=>a.number < b.number ? -1 : 1).map(
-                       chapter => < li key={chapter.number}>
-                           <h3>{chapter.title}</h3> 
-                           <p>{chapter.description}</p>
-                           <p> x Likes</p>
-                           </li>
-                   ) 
+                   suggestions.map(comic=> <SuggestionCard suggestion={true} comic={comic}/>)
                 }
             </ul> 
             </div>
