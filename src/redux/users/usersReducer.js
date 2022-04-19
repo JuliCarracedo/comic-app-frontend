@@ -24,11 +24,11 @@ const usersReducer = (state = initialState , action) => {
         // Handle login
         case REQUEST_LOGIN: return {...state, loading: true}
         case LOGIN_FAILED: return {...state, loading: false, errors: action.payload}
-        case LOGIN_CONFIRMED: return {...state, loading: false, message: action.payload, user}
+        case LOGIN_CONFIRMED: return {...state, loading: false, message: action.payload, user: action.user}
         // Handle Registrations
         case REQUEST_REGISTRATION: return {...state, loading: true}
         case REGISTER_FAILED: return {...state, loading: false, errors: action.payload}
-        case REGISTER_CONFIRMED: return {...state, loading: false, message: action.payload, user}
+        case REGISTER_CONFIRMED: return {...state, loading: false, message: action.payload, user: action.user}
     }
 }
 

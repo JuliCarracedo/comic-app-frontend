@@ -1,5 +1,5 @@
 
-import { configureStore, combineReducers, applyMiddleware } from 'redux';
+import { combineReducers, applyMiddleware, createStore } from 'redux';
 import logger from 'redux-logger';
 import thunk from 'redux-thunk';
 import usersReducer from './users/usersReducer';
@@ -9,7 +9,7 @@ const reducer = combineReducers({
   user: usersReducer,
 });
 
-const store = configureStore(
+const store = createStore(
   reducer,
   applyMiddleware(logger, thunk),
 );
