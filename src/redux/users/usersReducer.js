@@ -12,11 +12,11 @@ const initialState = {}
 // ACTIONS
 
 export const requestLogin = () => ({ type: REQUEST_LOGIN})
-export const loginConfirmed = (message) => ({ type: LOGIN_CONFIRMED, payload: message})
+export const loginConfirmed = (message, user) => ({ type: LOGIN_CONFIRMED, payload: message, user})
 export const loginFailed = (errors) => ({ type: LOGIN_FAILED, payload: errors})
 
 export const requestRegistration = () => ({ type: REQUEST_REGISTRATION})
-export const registerConfirmed = (message) => ({ type: REGISTER_CONFIRMED, payload: message})
+export const registerConfirmed = (message, user) => ({ type: REGISTER_CONFIRMED, payload: message, user})
 export const registerFailed = (errors) => ({ type: REGISTER_FAILED, payload: errors})
 
 const usersReducer = (state = initialState , action) => {
@@ -24,11 +24,11 @@ const usersReducer = (state = initialState , action) => {
         // Handle login
         case REQUEST_LOGIN: return {...state, loading: true}
         case LOGIN_FAILED: return {...state, loading: false, errors: action.payload}
-        case LOGIN_CONFIRMED: return {...state, loading: false, message: action.payload}
+        case LOGIN_CONFIRMED: return {...state, loading: false, message: action.payload, user}
         // Handle Registrations
         case REQUEST_REGISTRATION: return {...state, loading: true}
         case REGISTER_FAILED: return {...state, loading: false, errors: action.payload}
-        case REGISTER_CONFIRMED: return {...state, loading: false, message: action.payload}
+        case REGISTER_CONFIRMED: return {...state, loading: false, message: action.payload, user}
     }
 }
 
