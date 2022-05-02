@@ -29,6 +29,7 @@ const usersReducer = (state = initialState , action) => {
         case REQUEST_REGISTRATION: return {...state, loading: true}
         case REGISTER_FAILED: return {...state, loading: false, errors: action.payload}
         case REGISTER_CONFIRMED: return {...state, loading: false, message: action.payload, user: action.user}
+        default: return state // We return the default state here
     }
 }
 
