@@ -15,7 +15,7 @@ const Login = () => {
     }
 
     const handleSend = () => {
-        user = {email: email, password: pass};
+        const user = {email: email, password: pass};
         console.log(user);
     } 
 
