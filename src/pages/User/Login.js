@@ -20,7 +20,7 @@ const Login = () => {
     const handleSend = (e) => {
         e.preventDefault();
         const user = {email: email, password: pass};
-        dispatch(loginThunk)
+        dispatch(loginThunk(user))
     } 
 
     return (
