@@ -14,14 +14,15 @@ const Login = () => {
             }
     }
 
-    const handleSend = () => {
+    const handleSend = (e) => {
+        e.preventDefault();
         const user = {email: email, password: pass};
         console.log(user);
     } 
 
     return (
         <div className="container">
-            <form id="login" onSubmit={handleSend}>
+            <form id="login" onSubmit={e => handleSend(e)}>
 
                 <label htmlFor="email">Email:</label>
                 <input onChange={e => handleChange(e)} type="email" name="email" id="email" placeholder="Enter your email"/>
