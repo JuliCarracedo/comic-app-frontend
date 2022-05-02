@@ -1,9 +1,12 @@
 import React, { useState } from "react"
+import { useDispatch } from "react-redux";
+import loginThunk from "../../redux/users/loginThunk";
 
 const Login = () => {
 
     const [email, setEmail] = useState('');
     const [pass, setPass] = useState('');
+    const dispatch = useDispatch()
 
     const handleChange = (e) => {
         e.stopPropagation();
@@ -17,7 +20,7 @@ const Login = () => {
     const handleSend = (e) => {
         e.preventDefault();
         const user = {email: email, password: pass};
-        console.log(user);
+        dispatch(loginThunk)
     } 
 
     return (
