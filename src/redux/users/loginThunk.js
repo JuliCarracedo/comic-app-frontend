@@ -1,19 +1,26 @@
-import { requestLogin } from "./usersReducer"
+import { loginConfirmed, loginFailed, requestLogin } from "./usersReducer"
 
 const URL = 'https://cherry-crumble-58684.herokuapp.com/api/users/login'
 
 // Handles the login process
 const loginThunk = (user) => async(dispatch) => {
     dispatch(requestLogin());
-    const response = await fetch(URL,{ method: 'POST', body: userToJson(user)
-    })
+    const response = await fetch(URL,{ 
+                                method: 'POST', 
+                                headers: {
+                                    'Content-Type': 'application/json'
+                                },
+                                body: JSON.stringify({email: user.email, password: user.password}) })
     const obj = await response.json();
-    console.log(obj);
+    switch(response.status){
+        case 200: { console.log(loginConfirmed(obj.message, obj.user)); 
+                    localStorage.getItem('token', obj.token);
+                    return}
+        case 401: { dispatch(loginFailed(obj.errors)); return}
+        default : { console.log("Something went wrong"); return}
+    }
 }
 
 // Helper methods
-
-const userToJson = (user) => { JSON.stringify({email: user.email, password: user.password}) }
-
 
 export default loginThunk
