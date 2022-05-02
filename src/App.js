@@ -7,6 +7,8 @@ import Creators from './pages/Creators/Creators';
 import Categories from './pages/Categories/Categories';
 import Comic from './pages/Comic/Comic';
 import User from './pages/User/User';
+import Login from './pages/User/Login';
+
 function App() {
   return (
     <div className="App">
@@ -18,6 +20,7 @@ function App() {
           <Route exact path='/categories' element={<Categories/>}/>
           <Route exact path='/comic' element={<Comic/>}/>
           <Route exact path='/user' element={<User/>}/>
+          <Route exact path='/login' element={<Login/>}/>
         </Routes>
       </BrowserRouter>
     </div>
