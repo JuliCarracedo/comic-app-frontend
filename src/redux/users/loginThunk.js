@@ -13,7 +13,7 @@ const loginThunk = (user) => async(dispatch) => {
                                 body: JSON.stringify({email: user.email, password: user.password}) })
     const obj = await response.json();
     switch(response.status){
-        case 200: { console.log(loginConfirmed(obj.message, obj.user)); 
+        case 200: { dispatch(loginConfirmed(obj.message, obj.user)); 
                     localStorage.getItem('token', obj.token);
                     return}
         case 401: { dispatch(loginFailed(obj.errors)); return}
