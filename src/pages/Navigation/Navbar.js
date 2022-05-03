@@ -15,14 +15,15 @@ const Navbar = () => {
             </div>
             <input type='text'/>
             {logged ? <div>
-                <NavLink className='link' to='/login' >Log In</NavLink>
-                <NavLink className='link' to='/signup' >Sign up</NavLink>
-            </div> : <div>
                 <NavLink className='link' to='/' >Log Out</NavLink>
                 <NavLink className='link' to='/profile' >
                     <h1> Username </h1>
                     <img alt="profile" src="https://thumbs.dreamstime.com/b/default-avatar-profile-image-vector-social-media-user-icon-potrait-182347582.jpg"/>
                 </NavLink>
+                
+            </div> : <div>
+                <NavLink className='link' to='/login' >Log In</NavLink>
+                <NavLink className='link' to='/signup' >Sign up</NavLink>
                 </div>}
         </nav>
     )
