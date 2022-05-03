@@ -1,0 +1,25 @@
+.chapter-link, .chapter-link:hover, .active{
+    color: black;
+    text-decoration: none;
+}
+
+.chapter-card {
+    width: 60vw;
+    height: 10vh;
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+.chapter-card:hover {
+    background-color: gray;
+}
+
+.text > p {
+    margin: 0 0 0 2rem
+}
+
+.text > h3 {
+    margin: 5px
+}
