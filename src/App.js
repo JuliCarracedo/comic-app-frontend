@@ -8,6 +8,7 @@ import Categories from './pages/Categories/Categories';
 import Comic from './pages/Comic/Comic';
 import User from './pages/User/User';
 import Login from './pages/User/Login';
+import Register from './pages/User/Register';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route exact path='/comic' element={<Comic/>}/>
           <Route exact path='/user' element={<User/>}/>
           <Route exact path='/login' element={<Login/>}/>
+          <Route exact path='/signup' element={<Register/>}/>
         </Routes>
       </BrowserRouter>
     </div>

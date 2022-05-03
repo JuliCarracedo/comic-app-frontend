@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import registerThunk from "../../redux/users/registerThunk";
 
 const Register = () => {
 
     const [email, setEmail] = useState('');
-    const [user, setUser] = useState('');
+    const [username, setUser] = useState('');
     const [pass, setPass] = useState('');
     const dispatch = useDispatch()
     const navigate = useNavigate()
@@ -24,8 +25,8 @@ const Register = () => {
 
     const handleSend = (e) => {
         e.preventDefault();
-        const user = {email: email, password: pass, username: user};
-        // dispatch(loginThunk(user));
+        const user = {email: email, password: pass, username: username};
+        dispatch(registerThunk(user));
     } 
 
     useEffect(() => {
@@ -56,4 +57,4 @@ const Register = () => {
     )
 }
 
-export default Login;
+export default Register;
