@@ -43,7 +43,7 @@ const Login = () => {
                 <label htmlFor="password">Password:</label>
                 <input onChange={e => handleChange(e)} type="password" name="password" id="password" placeholder="Enter your password"/>
 
-                <input type="submit" id="submit" value="Log in"/>
+                <input type="submit" id="submit" value="Log In"/>
             </form> :
             
             <h1> Loading...</h1> }
