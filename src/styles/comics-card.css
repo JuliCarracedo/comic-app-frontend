@@ -1,0 +1,30 @@
+.comics-card {
+    width: 20vw;
+    height: 65vh;
+    padding: 1rem;
+    margin: 3rem;
+    background-color: gray;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.comics-card:hover {
+    background-color: gainsboro;
+}
+
+.title-and-category > h3, .title-and-category > h4 {
+    margin: 5px
+}
+
+.link-tag, .link-tag:hover, .active {
+    color: black;
+    text-decoration: none;
+}
+
+.smaller {
+    width: 12vw;
+    margin: 1rem;
+    height: max-content;
+}

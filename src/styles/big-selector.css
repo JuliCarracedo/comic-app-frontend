@@ -1,0 +1,27 @@
+.big-categories {
+    list-style: none;
+    width: 60vw;
+    padding: 0;
+    border: 3px solid gray;
+    border-radius: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.big-categories > li {
+    width: 60vw;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.big-categories > li:nth-child(n+1) {
+    border-top: 1px solid gray;
+}
+
+.big-categories > li:hover {
+    background-color: gray;
+    padding: 1px;
+    text-align: center;
+}

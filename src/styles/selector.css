@@ -1,0 +1,25 @@
+.categories {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    border: 3px solid gray;
+    border-radius: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.categories > li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 15vw;
+}
+
+.categories > li:hover {
+    background-color: gray;
+}
+
+.categories > li:nth-child(n+1) {
+    border-left: 1px solid gray;
+}
