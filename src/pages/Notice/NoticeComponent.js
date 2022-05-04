@@ -5,12 +5,17 @@ const NoticeComponent = ( ) => {
     const [alive, setAlive] = useState(true)
 
     useEffect(()=>{
-        if(!alive){setAlive(true)}
-        setTimeout(setAlive(false),4000)
+        setTimeout(setAlive,10000,false);
     },[]) 
 
-    return(alive && <div>
-        You are being notified
+    const killNotice = (e) => {
+        e.preventDefault();
+        setAlive(false);
+    }
+
+    return(alive && <div className="notice">
+        <p>You are being notified</p>
+        <button type="button" onClick={e=>killNotice(e)}>x</button>
     </div>)
 }
 

@@ -16,7 +16,7 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Navbar />
-        <NoticeComponent/>
+        <NoticeComponent />
         <Routes >
           <Route exact path='/' element={<Home/>}/>
           <Route exact path='/creators' element={<Creators/>}/>
