@@ -12,12 +12,12 @@ const initialState = {}
 // ACTIONS
 
 export const requestLogin = () => ({ type: REQUEST_LOGIN})
-export const loginConfirmed = (message, user) => ({ type: LOGIN_CONFIRMED, payload: message, user})
-export const loginFailed = (errors) => ({ type: LOGIN_FAILED, payload: errors})
+export const loginConfirmed = (user) => ({ type: LOGIN_CONFIRMED, user})
+export const loginFailed = () => ({ type: LOGIN_FAILED})
 
 export const requestRegistration = () => ({ type: REQUEST_REGISTRATION})
-export const registerConfirmed = (message, user) => ({ type: REGISTER_CONFIRMED, payload: message, user})
-export const registerFailed = (errors) => ({ type: REGISTER_FAILED, payload: errors})
+export const registerConfirmed = (user) => ({ type: REGISTER_CONFIRMED, user})
+export const registerFailed = () => ({ type: REGISTER_FAILED})
 
 const usersReducer = (state = initialState , action) => {
     switch(action.type){
