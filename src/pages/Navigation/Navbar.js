@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { logout } from "../../redux/users/usersReducer";
+import { loadMessage } from "../../redux/notifications/notificationsReducer"
 import '../../styles/navbar.css'
 const Navbar = () => {
 
@@ -9,7 +10,8 @@ const Navbar = () => {
 
     const clickLogOut = (e) => {
         e.preventDefault();
-        dispatch(logout());
+        dispatch(logout()); 
+        dispatch(loadMessage("Successfully Logged Out"));
         localStorage.removeItem('token');
     }
     return(
