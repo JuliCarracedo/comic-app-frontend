@@ -1,25 +1,34 @@
 import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { killNotice, loadMessage } from "../../redux/notifications/notificationsReducer";
 import "../../styles/notice.css";
 
 const NoticeComponent = ( ) => {
 
     const [alive, setAlive] = useState(false);
-    // const [type, setType] = useState('idle');
+    const [text, setText] = useState('');
+    const { type, message, alert } = useSelector(state =>state.notifications)
+    const dispatch = useDispatch();
 
-    // const {}
+    if (type){
+        setAlive(true);
+        setText(type === 'message'?message:alert)
+    }else{
+        setAlive(false)
+    }
 
     useEffect(()=>{
-        setTimeout(setAlive, 10000, false);
+        setTimeout(dispatch, 10000, killNotice());
     },[]); 
 
-    const killNotice = (e) => {
+    const shutdown = (e) => {
         e.preventDefault();
-        setAlive(false);
+        dispatch(killNotice())
     }
 
     return(alive && <div className="notice message">
-        <p>You are being notified</p>
-        <button type="button" onClick={e=>killNotice(e)}>x</button>
+        <p>{text}</p>
+        <button type="button" onClick={e=>shutdown(e)}>x</button>
     </div>)
 }
 
