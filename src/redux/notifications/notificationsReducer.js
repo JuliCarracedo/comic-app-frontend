@@ -39,7 +39,7 @@ const readErrors = (errors) =>{
     for (const item in errors){
        let string = ''
        errors[item].forEach(element => {
-           string += `${item} element, `;
+           string += `${item} ${element}, `;
        });
        result += `${string}. `;
     }
