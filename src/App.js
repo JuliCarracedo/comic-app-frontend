@@ -9,12 +9,14 @@ import Comic from './pages/Comic/Comic';
 import User from './pages/User/User';
 import Login from './pages/User/Login';
 import Register from './pages/User/Register';
+import NoticeComponent from './pages/Notice/NoticeComponent';
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
         <Navbar />
+        <NoticeComponent />
         <Routes >
           <Route exact path='/' element={<Home/>}/>
           <Route exact path='/creators' element={<Creators/>}/>

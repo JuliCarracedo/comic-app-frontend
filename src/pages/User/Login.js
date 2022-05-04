@@ -12,13 +12,14 @@ const Login = () => {
 
     const { loading, logged } = useSelector(store => store.user)
 
-    const handleChange = (e) => {
+    const handleEmail = (e) => {
         e.stopPropagation();
-        switch (e.target.id) {
-            case "email": setEmail(e.target.value)
-            case "password": setPass(e.target.value)
-            default: return;
-            }
+        setEmail(e.target.value)
+    }
+
+    const handlePassword = (e) => {
+        e.stopPropagation();
+        setPass(e.target.value)
     }
 
     const handleSend = (e) => {
@@ -31,17 +32,17 @@ const Login = () => {
         if(logged){
             navigate('/');
         }
-    }, [logged])
+    }, [navigate])
 
     return (
         <div className="container">
             {!loading ? <form id="login" onSubmit={e => handleSend(e)}>
 
                 <label htmlFor="email">Email:</label>
-                <input onChange={e => handleChange(e)} type="email" name="email" id="email" placeholder="Enter your email"/>
+                <input required onChange={e => handleEmail(e)} type="email" name="email" id="email" placeholder="Enter your email"/>
 
                 <label htmlFor="password">Password:</label>
-                <input onChange={e => handleChange(e)} type="password" name="password" id="password" placeholder="Enter your password"/>
+                <input required onChange={e => handlePassword(e)} type="password" name="password" id="password" placeholder="Enter your password"/>
 
                 <input type="submit" id="submit" value="Log In"/>
             </form> :

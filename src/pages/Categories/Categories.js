@@ -20,7 +20,7 @@ const Categories = () => {
                     {category: 'Sci-Fi', title: 'The Eternaut'},
                     {category: 'Sci-fi', title: 'Futurama'},]
 
-    const filteredComics = (category == 'All' ? comics : comics.filter(comic=> comic.category == category))
+    const filteredComics = (category === 'All' ? comics : comics.filter(comic=> comic.category === category))
     return(
         <div className="container">
             {category ? 

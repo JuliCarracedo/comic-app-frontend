@@ -1,3 +1,4 @@
+import { loadAlert, loadMessage } from "../notifications/notificationsReducer";
 import { registerConfirmed, registerFailed, requestRegistration } from "./usersReducer"
 
 const URL = 'https://cherry-crumble-58684.herokuapp.com/api/users/sign_up'
@@ -10,11 +11,14 @@ const registerThunk = (user) => async(dispatch) => {
     const obj = await response.json();
 
     switch(response.status){
-        case 200: { dispatch(registerConfirmed(obj.message, obj.user)); 
-                    localStorage.getItem('token', obj.token);
-                    return}
-        case 401: { dispatch(registerFailed(obj.errors)); return}
-        default : { console.log("Something went wrong"); return}
+        case 200: { dispatch(registerConfirmed(obj.user)); 
+                    dispatch(loadMessage(obj.message));
+                    localStorage.setItem('token', obj.token);
+                    break;}
+        case 401: { dispatch(registerFailed()); 
+                    dispatch(loadAlert(obj.errors));
+                    break;}
+        default : { console.log("Something went wrong"); break;}
     }
 }
 

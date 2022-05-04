@@ -13,14 +13,19 @@ const Register = () => {
 
     const { loading, logged } = useSelector(store => store.user)
 
-    const handleChange = (e) => {
+    const handleEmail = (e) => {
         e.stopPropagation();
-        switch (e.target.id) {
-            case "email": setEmail(e.target.value)
-            case "password": setPass(e.target.value)
-            case "username": setUser(e.target.value)
-            default: return;
-            }
+        setEmail(e.target.value)
+    }
+
+    const handlePassword = (e) => {
+        e.stopPropagation();
+        setPass(e.target.value)
+    }
+
+    const handleUser = (e) => {
+        e.stopPropagation();
+        setUser(e.target.value)
     }
 
     const handleSend = (e) => {
@@ -40,13 +45,13 @@ const Register = () => {
             {!loading ? <form id="signup" onSubmit={e => handleSend(e)}>
 
                 <label htmlFor="username">Username:</label>
-                <input onChange={e => handleChange(e)} type="text" name="username" id="username" placeholder="Enter your username"/>
+                <input required onChange={e => handleUser(e)} type="text" name="username" id="username" placeholder="Enter your username"/>
 
                 <label htmlFor="email">Email:</label>
-                <input onChange={e => handleChange(e)} type="email" name="email" id="email" placeholder="Enter your email"/>
+                <input required onChange={e => handleEmail(e)} type="email" name="email" id="email" placeholder="Enter your email"/>
 
                 <label htmlFor="password">Password:</label>
-                <input onChange={e => handleChange(e)} type="password" name="password" id="password" placeholder="Enter your password"/>
+                <input required onChange={e => handlePassword(e)} type="password" name="password" id="password" placeholder="Enter your password"/>
 
                 <input type="submit" id="submit" value="Sign Up"/>
             </form> :

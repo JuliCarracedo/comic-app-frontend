@@ -1,3 +1,4 @@
+import { loadAlert, loadMessage } from "../notifications/notificationsReducer";
 import { loginConfirmed, loginFailed, requestLogin } from "./usersReducer"
 
 const URL = 'https://cherry-crumble-58684.herokuapp.com/api/users/login'
@@ -13,11 +14,15 @@ const loginThunk = (user) => async(dispatch) => {
                                 body: JSON.stringify({email: user.email, password: user.password}) })
     const obj = await response.json();
     switch(response.status){
-        case 200: { dispatch(loginConfirmed(obj.message, obj.user)); 
-                    localStorage.getItem('token', obj.token);
-                    return}
-        case 401: { dispatch(loginFailed(obj.errors)); return}
-        default : { console.log("Something went wrong"); return}
+        case 200: { dispatch(loginConfirmed(obj.user)); 
+                    localStorage.setItem('token', obj.token);
+                    break;
+                  }
+        case 401: { dispatch(loginFailed());
+                    dispatch(loadAlert(obj.errors));
+                    break;
+                  }
+        default : { console.log("Something went wrong"); break;}
     }
 }
 
