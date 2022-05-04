@@ -24,7 +24,7 @@ export const killNotice = () =>({
 
 const notificationsReducer = (state = {}, action) => {
     switch(action.type){
-        case LOAD_ALERT: return {type: 'alert', errors: readErrors(action.errors)}
+        case LOAD_ALERT: return {type: 'alert', alert: readErrors(action.errors)}
         case LOAD_MESSAGE: return {type: 'message', message: action.message}
         case KILL_NOTICE: return {}
         default: return state;

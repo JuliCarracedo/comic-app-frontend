@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { killNotice, loadMessage } from "../../redux/notifications/notificationsReducer";
+import { killNotice } from "../../redux/notifications/notificationsReducer";
 import "../../styles/notice.css";
 
 const NoticeComponent = ( ) => {
@@ -12,7 +12,7 @@ const NoticeComponent = ( ) => {
 
     if (type){
         setAlive(true);
-        setText(type === 'message'?message:alert)
+        setText(type === 'message' ? message : alert)
     }else{
         setAlive(false)
     }
@@ -26,7 +26,7 @@ const NoticeComponent = ( ) => {
         dispatch(killNotice())
     }
 
-    return(alive && <div className="notice message">
+    return(alive && <div className={`notice ${type}`}>
         <p>{text}</p>
         <button type="button" onClick={e=>shutdown(e)}>x</button>
     </div>)
