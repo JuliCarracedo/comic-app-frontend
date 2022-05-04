@@ -9,7 +9,7 @@ const Navbar = () => {
     const dispatch = useDispatch()
 
     const clickLogOut = (e) => {
-        e.preventDefault();
+        e.stopPropagation();
         dispatch(logout()); 
         dispatch(loadMessage("Successfully Logged Out"));
         localStorage.removeItem('token');
