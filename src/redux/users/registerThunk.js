@@ -16,7 +16,7 @@ const registerThunk = (user) => async(dispatch) => {
                     localStorage.setItem('token', obj.token);
                     break;}
         case 401: { dispatch(registerFailed()); 
-                    dispatch(loadAlert(obj.errors))
+                    dispatch(loadAlert(obj.errors));
                     break;}
         default : { console.log("Something went wrong"); break;}
     }
