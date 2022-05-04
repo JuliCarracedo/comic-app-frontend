@@ -23,12 +23,12 @@ const usersReducer = (state = initialState , action) => {
     switch(action.type){
         // Handle login
         case REQUEST_LOGIN: return {...state, loading: true}
-        case LOGIN_FAILED: return {...state, loading: false, errors: action.payload}
-        case LOGIN_CONFIRMED: return {...state, loading: false, logged: true, message: action.payload, user: action.user}
+        case LOGIN_FAILED: return {...state, loading: false}
+        case LOGIN_CONFIRMED: return {...state, loading: false, logged: true, user: action.user}
         // Handle Registrations
         case REQUEST_REGISTRATION: return {...state, loading: true}
-        case REGISTER_FAILED: return {...state, loading: false, errors: action.payload}
-        case REGISTER_CONFIRMED: return {...state, loading: false, logged: true, message: action.payload, user: action.user}
+        case REGISTER_FAILED: return {...state, loading: false}
+        case REGISTER_CONFIRMED: return {...state, loading: false, logged: true, user: action.user}
         default: return state // We return the default state here
     }
 }
