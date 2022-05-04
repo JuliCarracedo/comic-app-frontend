@@ -5,17 +5,9 @@ import "../../styles/notice.css";
 
 const NoticeComponent = ( ) => {
 
-    const [alive, setAlive] = useState(false);
-    const [text, setText] = useState('');
-    const { type, message, alert } = useSelector(state =>state.notifications)
+    const { type, message, alert } = useSelector(state =>state.notifications);
+    
     const dispatch = useDispatch();
-
-    if (type){
-        setAlive(true);
-        setText(type === 'message' ? message : alert)
-    }else{
-        setAlive(false)
-    }
 
     useEffect(()=>{
         setTimeout(dispatch, 10000, killNotice());
@@ -26,10 +18,10 @@ const NoticeComponent = ( ) => {
         dispatch(killNotice())
     }
 
-    return(alive && <div className={`notice ${type}`}>
-        <p>{text}</p>
+    return(type ? <div className={`notice ${type}`}>
+        <p>{message || alert}</p>
         <button type="button" onClick={e=>shutdown(e)}>x</button>
-    </div>)
+    </div>: null)
 }
 
 export default NoticeComponent;

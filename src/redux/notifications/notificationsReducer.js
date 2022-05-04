@@ -34,7 +34,7 @@ const notificationsReducer = (state = {}, action) => {
 // Helpers
 
 const readErrors = (errors) =>{
-    const result = ''
+    let result = ''
 
     for (const item in errors){
        let string = ''
