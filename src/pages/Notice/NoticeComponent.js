@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { killNotice } from "../../redux/notifications/notificationsReducer";
 import "../../styles/notice.css";
@@ -11,7 +11,7 @@ const NoticeComponent = ( ) => {
 
     useEffect(()=>{
         setTimeout(dispatch, 10000, killNotice());
-    },[]); 
+    },[dispatch]); 
 
     const shutdown = (e) => {
         e.preventDefault();

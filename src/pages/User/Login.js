@@ -32,7 +32,7 @@ const Login = () => {
         if(logged){
             navigate('/');
         }
-    }, [logged])
+    }, [navigate])
 
     return (
         <div className="container">
