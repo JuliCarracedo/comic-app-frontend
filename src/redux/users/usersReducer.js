@@ -10,7 +10,6 @@ const REGISTER_FAILED = "redux/usersReducer/REGISTER_FAILED";
 
 const LOGOUT = "redux/usersReducer/LOGOUT";
 const SEARCH = "redux/usersReducer/SEARCH"
-const SEARCHED = "redux/usersReducer/SEARCHED"
 
 const initialState = {};
 // ACTIONS
@@ -24,8 +23,8 @@ export const registerConfirmed = (user) => ({ type: REGISTER_CONFIRMED, user});
 export const registerFailed = () => ({ type: REGISTER_FAILED});
 
 export const logout = () => ({type: LOGOUT});
-export const searchUser = (user) =>({type: SEARCH, searchUser: user})
-export const searchedUser = (user) =>({type: SEARCHED, searchedUser: user})
+export const searchUser = (user) =>({type: SEARCH, searchUser: user});
+
 
 const usersReducer = (state = initialState , action) => {
     switch(action.type){
@@ -41,7 +40,6 @@ const usersReducer = (state = initialState , action) => {
         case LOGOUT: return {};
         // Searched user
         case SEARCH: return {...state, search: action.searchUser}
-        case SEARCH: return {...state, searched: action.searchedUser}
         // Return the default state here
         default: return state
     }
