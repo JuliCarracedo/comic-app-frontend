@@ -8,3 +8,5 @@ const userSearch = (user) => async(dispatch) => {
     
     dispatch(searchUser(obj));
 }
+
+export default userSearch;
