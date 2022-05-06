@@ -5,7 +5,7 @@ import ComicsCard from "../Comic-Card/ComicsCard";
 const User = () => {
 
     const { search } = useSelector(state=>state.user)
-    const user = search || false;
+    const user = search.user || false;
 
     const comics = [{category: 'Action', title: 'Dragon Ball'},
     {category: 'Action', title: 'Naruto'},
