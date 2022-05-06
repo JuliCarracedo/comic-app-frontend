@@ -42,7 +42,8 @@ const usersReducer = (state = initialState , action) => {
         // Searched user
         case SEARCH: return {...state, search: action.searchUser}
         case SEARCH: return {...state, searched: action.searchedUser}
-        default: return state // We return the default state here
+        // Return the default state here
+        default: return state
     }
 }
 
