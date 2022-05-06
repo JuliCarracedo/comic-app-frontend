@@ -13,7 +13,7 @@ const registerThunk = (user) => async(dispatch) => {
     switch(response.status){
         case 200: { dispatch(registerConfirmed(obj.user)); 
                     dispatch(loadMessage(obj.message));
-                    localStorage.setItem('token', obj.token);
+                    sessionStorage.setItem('token', obj.token);
                     break;}
         case 401: { dispatch(registerFailed()); 
                     dispatch(loadAlert(obj.errors));
