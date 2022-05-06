@@ -3,10 +3,12 @@ import { NavLink } from "react-router-dom";
 import { logout } from "../../redux/users/usersReducer";
 import { loadMessage } from "../../redux/notifications/notificationsReducer"
 import '../../styles/navbar.css'
+import userSearch from "../../redux/users/userSearch";
+
 const Navbar = () => {
 
     const { logged, user } = useSelector(store=>store.user)
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
 
     const clickLogOut = (e) => {
         e.stopPropagation();
@@ -14,6 +16,12 @@ const Navbar = () => {
         dispatch(loadMessage("Successfully Logged Out"));
         localStorage.removeItem('token');
     }
+
+    const clickProfile = (e) => {
+        e.stopPropagation();
+        dispatch(userSearch(user));
+    }
+
     return(
         <nav className='navbar'>
             <div>
@@ -25,7 +33,7 @@ const Navbar = () => {
             <input type='text'/>
             {logged ? <div>
                 <NavLink className='link' to='/' onClick={e=>clickLogOut(e)} >Log Out</NavLink>
-                <NavLink className='link' to='/user' > {user.username} </NavLink>
+                <NavLink className='link' to='/user' onClick={e=>clickProfile(e)} > {user.username} </NavLink>
             </div> : <div>
                 <NavLink className='link' to='/login' >Log In</NavLink>
                 <NavLink className='link' to='/signup' >Sign up</NavLink>
