@@ -15,7 +15,7 @@ const loginThunk = (user) => async(dispatch) => {
     const obj = await response.json();
     switch(response.status){
         case 200: { dispatch(loginConfirmed(obj.user)); 
-                    localStorage.setItem('token', obj.token);
+                    sessionStorage.setItem('token', obj.token);
                     break;
                   }
         case 401: { dispatch(loginFailed());
