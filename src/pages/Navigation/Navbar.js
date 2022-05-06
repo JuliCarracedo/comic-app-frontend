@@ -25,7 +25,7 @@ const Navbar = () => {
             <input type='text'/>
             {logged ? <div>
                 <NavLink className='link' to='/' onClick={e=>clickLogOut(e)} >Log Out</NavLink>
-                <NavLink className='link' to='/profile' > {user.username} </NavLink>
+                <NavLink className='link' to='/user' > {user.username} </NavLink>
             </div> : <div>
                 <NavLink className='link' to='/login' >Log In</NavLink>
                 <NavLink className='link' to='/signup' >Sign up</NavLink>
