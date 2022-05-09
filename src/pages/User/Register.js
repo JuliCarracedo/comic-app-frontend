@@ -38,7 +38,7 @@ const Register = () => {
         if(logged){
             navigate('/');
         }
-    }, [logged])
+    });
 
     return (
         <div className="container">
