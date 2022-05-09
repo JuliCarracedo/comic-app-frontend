@@ -8,8 +8,11 @@ const cld = new Cloudinary({
 });
 
 const serveImage = (cloudPath) => {
-    const myImage = cld.image(cloudPath);
-    myImage.toURL();
+    // console.log('Fetching')
+    // const myImage = cld.image(cloudPath);
+    // console.log(myImage)
+    // console.log( myImage.toURL())
+    return 'https://res.cloudinary.com/comic-app/image/upload/c_fill,h_200,w_300/r_20/file.jpg'
 }
 
 export default serveImage

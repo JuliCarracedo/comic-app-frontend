@@ -1,20 +1,17 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import serveImage from "../../cloudinary/serveImage";
 // import ComicsCard from "../Comic-Card/ComicsCard";
 
 const User = () => {
 
-    const { search } = useSelector(state=>state.user)
-
-    const fetchImage = () =>{
-        return 'https://images.unsplash.com/photo-1529665253569-6d01c0eaf7b6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8cHJvZmlsZXxlbnwwfHwwfHw%3D&w=1000&q=80'
-    }    
+    const { search } = useSelector(state=>state.user)    
 
     return( search ?
     <div className="container">
         
         <div className="top">
-            <img alt="profile" className="profile-img" src={fetchImage() || 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDyvGPdkQdUyozfQIHwKd6vBUg0gF7w-mpiQ&usqp=CAU'}/>
+            <img alt="profile" className="profile-img" src={ serveImage('tayc2afl') || 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDyvGPdkQdUyozfQIHwKd6vBUg0gF7w-mpiQ&usqp=CAU'}/>
             <div className="profile-text">
                 <h2>{search.username}</h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec rhoncus erat ac mauris volutpat facilisis. Fusce malesuada ex in nisl ornare, at ornare augue condimentum. Nullam mattis nisi id dui.</p>   
