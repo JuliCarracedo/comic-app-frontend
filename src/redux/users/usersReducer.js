@@ -39,7 +39,7 @@ const usersReducer = (state = initialState , action) => {
         // Log out
         case LOGOUT: return {};
         // Searched user
-        case SEARCH: return {...state, search: action.searchUser}
+        case SEARCH: return {...state, search: action.searchUser.user }
         // Return the default state here
         default: return state
     }
