@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import ProfileUploader from "../File Uploaders/profileUploader";
+import ProfileUploader from "../File Uploaders/ProfileUploader";
 // import ComicsCard from "../Comic-Card/ComicsCard";
 
 const User = () => {
