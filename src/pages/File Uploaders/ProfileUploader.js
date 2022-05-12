@@ -1,6 +1,10 @@
 import React from "react"
 
-const ProfileUploader = () => {
+const ProfileUploader = (props) => {
+    const {setModal} = props
+    const closeModal = () => {
+        setModal(false);
+    }
     return (
     <div className="profile-uploader">
         <form id="profile-form">
