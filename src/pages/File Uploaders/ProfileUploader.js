@@ -11,6 +11,7 @@ const ProfileUploader = (props) => {
             <label htmlFor="image">Upload a profile picture</label>
             <input type="image" name="image" id="image"/>
             <input type="submit" value="Upload"/>
+            <button type="button" onClick={closeModal} > Close </button>
         </form>
     </div>)
 
