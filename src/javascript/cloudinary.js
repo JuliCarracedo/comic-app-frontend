@@ -11,23 +11,25 @@ const cld = new Cloudinary({
   }
 });
 
-const signUpload = async () => {
-    const timestamp = Math.round(newDate() /1000);
-    const params = {
-      timestamp: timestamp
-    };
-    const signature = await cloudinary.utils.api_sign_request(params, process.env.CLOUDINARY_SECRET);
-    return { timestamp, signature };
-  }
+function hash(string) {
+  const utf8 = new TextEncoder().encode(string);
+  return crypto.subtle.digest('SHA-1', utf8).then((hashBuffer) => {
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+    const hashHex = hashArray
+      .map((bytes) => bytes.toString(16).padStart(2, '0'))
+      .join('');
+    return hashHex;
+  });
+}
 
-export const uploadImage = (image) => {
-    const { timestamp, signature} = signUpload();
+export const uploadImage = async(image) => {
+    const timestamp = Math.round(new Date() /1000);
+    const signature = await hash(`timestamp=${timestamp}${process.env.CLOUDINARY_SECRET}`);
 
     const data = new FormData()
-    data.append('file', image)
+    data.append('file', image);
 
-
-    obj = fetch(URL,{
+    return fetch(URL,{
         method: 'POST',
         headers: {
             'Content-Type': 'multipart/form-data; boundary=<calculated when request is sent>'
@@ -38,8 +40,8 @@ export const uploadImage = (image) => {
             signature: signature,
             file: data
         }
-    })
-    console.log()
+    }).then(response => response.json());
+
 }
 
 const getCloudinaryURL = (publicId) => {cld.image(publicId).toURL();}
