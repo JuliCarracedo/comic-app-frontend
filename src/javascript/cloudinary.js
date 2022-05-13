@@ -5,9 +5,9 @@ const URL = " https://api.cloudinary.com/v1_1/comic-app/image/upload";
 
 const cld = new Cloudinary({
   cloud: {
-    cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
-    api_key: process.env.CLOUDINARY_API_KEY,
-    api_secret: process.env.CLOUDINARY_SECRET,
+    cloud_name: process.env.REACT_APP_CLOUDINARY_CLOUD_NAME,
+    api_key: process.env.REACT_APP_CLOUDINARY_API_KEY,
+    api_secret: process.env.REACT_APP_CLOUDINARY_SECRET,
   }
 });
 
@@ -24,10 +24,14 @@ function hash(string) {
 
 export const uploadImage = async(image) => {
     const timestamp = Math.round(new Date() /1000);
-    const signature = await hash(`timestamp=${timestamp}${process.env.CLOUDINARY_SECRET}`);
+    const signature = await hash(`timestamp=${timestamp}${process.env.REACT_APP_CLOUDINARY_SECRET}`);
 
     const data = new FormData()
     data.append('file', image);
+
+    console.log(signature)
+    console.log(timestamp)
+    console.log(process.env.REACT_APP_CLOUDINARY_SECRET)
 
     return fetch(URL,{
         method: 'POST',
