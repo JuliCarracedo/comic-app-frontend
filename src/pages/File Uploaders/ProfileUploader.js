@@ -1,7 +1,11 @@
 import React, {useState} from "react";
+import { useDispatch } from "react-redux";
+import uploadProfileThunk from "../../redux/uploadProfile/upladProfileThunk";
 
 const ProfileUploader = (props) => {
-    const {setModal} = props
+    const {setModal} = props;
+    const dispatch = useDispatch();
+
     const closeModal = () => {
         setModal(false);
     }
@@ -15,7 +19,7 @@ const ProfileUploader = (props) => {
 
     const upload = (e) => {
         e.preventDefault();
-        console.log(file);
+        dispatch(uploadProfileThunk(file));
     }
     
 

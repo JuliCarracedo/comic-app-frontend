@@ -9,7 +9,7 @@ const REGISTER_CONFIRMED = "redux/usersReducer/REGISTER_CONFIRMED";
 const REGISTER_FAILED = "redux/usersReducer/REGISTER_FAILED";
 
 const LOGOUT = "redux/usersReducer/LOGOUT";
-const SEARCH = "redux/usersReducer/SEARCH"
+const SEARCH = "redux/usersReducer/SEARCH";
 
 const initialState = {};
 // ACTIONS
