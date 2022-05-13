@@ -1,4 +1,4 @@
-import React from "react"
+import React, {useState} from "react";
 
 const ProfileUploader = (props) => {
     const {setModal} = props
@@ -6,10 +6,18 @@ const ProfileUploader = (props) => {
         setModal(false);
     }
 
-    const upload = (e) => {
-        e.stopPropagation();
-        console.log(e.target.value);
+    const [file, setFile] = useState(false);
+
+    const handleFile = (e) =>{
+      e.stopPropagation();
+      setFile(e.target.value)
     }
+
+    const upload = (e) => {
+        e.preventDefault();
+        console.log(file);
+    }
+    
 
     const removeDragData = (ev) => {
         console.log('Removing drag data')
@@ -46,14 +54,14 @@ const ProfileUploader = (props) => {
         }
       
         // Pasar el evento a removeDragData para limpiar
-        removeDragData(ev)
+        removeDragData(ev);
       }
 
     return (
     <div className="profile-uploader">
         <form id="profile-form" onSubmit={e=>upload(e)}>
             <div onDrop={e => dropHandler()}>
-                <input type="file" name="image" id="image"/>
+                <input required onChange={e => handleFile(e)} type="file" name="image" id="image"/>
             </div>
             <input type="submit" value="Upload"/>
             <button type="button" onClick={closeModal} > Close </button>
